@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	  <title>message form</title>
+	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	</head>
+	<body>
+	  <p>Please leave your message!!</p>
+		<!-- アクションとメソッドの設定 -->
+		<form th:object="${postForm}" th:action="@{/posts}" th:method="post">
+			Name <br><input type="text"  name="name" th:field="*{name}"><span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
+			Title <br><input type="text" name="title" th:field="*{title}"><span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span><br>
+			Message <br><textarea name="text" cols="100" rows="10" th:field="*{text}"><span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span></textarea><br>
+			<input type="submit" value="Submit">
+		</form>
+	  	<br>
+	  	<br>
+	  <a th:href="@{/posts}">Old posts</a>
+	</body>
+</html>

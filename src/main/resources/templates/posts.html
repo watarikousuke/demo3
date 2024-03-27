@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>OldPosts</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	</head>
+	<body>
+	  <p>Thank you for your comment!</p>
+		<table>
+			<tr>
+				<th>name</th>
+				<th>title</th>
+				<th>text</th>
+			</tr>
+			<tr th:each="post : ${posts}">
+				<td th:text="${post.name}"></td><!-- 表示したいタグにth:textを追加 -->
+				<td th:text="${post.title}"></td><!-- 表示したいタグにth:textを追加 -->
+				<td th:text="${post.text}"></td><!-- 表示したいタグにth:textを追加 -->
+			</tr>
+		</table>
+		
+		<!-- 初期画面のリンク追加 -->
+		<a th:href="@{/input}">Back</a>
+	</body>
+</html>
